@@ -22,4 +22,5 @@ public class NotificationPreferenceController {
 
         return ResponseEntity.ok().build();
     }
+
 }
