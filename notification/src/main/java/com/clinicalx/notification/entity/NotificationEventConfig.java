@@ -7,7 +7,7 @@ import lombok.Setter;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "notification_event_configs", uniqueConstraints = {@UniqueConstraint(columnNames = {"clinic_id", "event_name"})})
+@Table(name = "notification_event_configs", uniqueConstraints = {@UniqueConstraint(columnNames = {"event_name","description"})})
 @Getter
 @Setter
 public class NotificationEventConfig {
@@ -16,8 +16,6 @@ public class NotificationEventConfig {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "clinic_id", nullable = false)
-    private Long clinicId;
 
     @Column(name = "event_name", nullable = false)
     private String eventName;

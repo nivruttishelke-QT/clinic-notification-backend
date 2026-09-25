@@ -20,11 +20,9 @@ public class NotificationEventConfigController {
     private final NotificationEventConfigService service;
 
     @GetMapping
-    public ResponseEntity<List<NotificationEventResponse>> getEvents(
-            @RequestParam Long clinicId) {
+    public ResponseEntity<List<NotificationEventResponse>> getEvents( ) {
 
-        return ResponseEntity.ok(service.getEvents(clinicId)
-        );
+        return ResponseEntity.ok(service.getEvents());
     }
 
     @PostMapping
@@ -39,8 +37,7 @@ public class NotificationEventConfigController {
             @PathVariable Long id,
             @Valid @RequestBody NotificationEventUpdateRequest request) {
 
-        return ResponseEntity.ok(service.updateEvent(id, request)
-        );
+        return ResponseEntity.ok(service.updateEvent(id, request));
     }
 
     @DeleteMapping("/{id}")
