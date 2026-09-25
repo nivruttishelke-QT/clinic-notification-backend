@@ -18,21 +18,20 @@ public class NotificationEventConfigService {
     private final NotificationEventConfigRepository repository;
 
     @Transactional(readOnly = true)
-    public List<NotificationEventResponse> getEvents(Long clinicId) {
+    public List<NotificationEventResponse> getEvents() {
 
-        return repository.findByClinicIdOrderByCreatedAtAsc(clinicId).stream().map(this::toResponse).toList();
+        return repository.findByOrderByCreatedAtAsc().stream().map(this::toResponse).toList();
     }
 
     @Transactional
     public NotificationEventResponse createEvent(NotificationEventCreateRequest request) {
 
-        if (repository.existsByClinicIdAndEventName(request.clinicId(), request.eventName())) {
+        if (repository.existsByEventName( request.eventName())) {
             throw new IllegalArgumentException("Event already exists for this clinic");
         }
 
         NotificationEventConfig event = new NotificationEventConfig();
 
-        event.setClinicId(request.clinicId());
         event.setEventName(request.eventName());
         event.setDescription(request.description());
 
@@ -65,7 +64,6 @@ public class NotificationEventConfigService {
 
         return new NotificationEventResponse(
                 event.getId(),
-                event.getClinicId(),
                 event.getEventName(),
                 event.getDescription(),
                 event.getCreatedAt(),

@@ -5,9 +5,6 @@ import jakarta.validation.constraints.NotNull;
 
 public record NotificationEventCreateRequest(
 
-        @NotNull
-        Long clinicId,
-
         @NotBlank
         String eventName,
 

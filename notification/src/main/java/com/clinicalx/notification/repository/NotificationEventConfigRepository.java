@@ -9,12 +9,11 @@ import java.util.Optional;
 public interface NotificationEventConfigRepository
         extends JpaRepository<NotificationEventConfig, Long> {
 
-    List<NotificationEventConfig> findByClinicIdOrderByCreatedAtAsc(Long clinicId);
+    List<NotificationEventConfig> findByOrderByCreatedAtAsc();
 
-    Optional<NotificationEventConfig> findByIdAndClinicId(
-            Long id,
+    Optional<NotificationEventConfig> findById(
             Long clinicId
     );
 
-    boolean existsByClinicIdAndEventName(Long clinicId, String eventName);
+    boolean existsByEventName( String eventName);
 }
