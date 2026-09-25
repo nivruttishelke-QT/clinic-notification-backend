@@ -41,10 +41,9 @@ public class NotificationEventConfigController {
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Void> deleteEvent(@PathVariable Long id) {
+    public ResponseEntity<String> deleteEvent(@PathVariable Long id) {
 
         service.deleteEvent(id);
-
-        return ResponseEntity.noContent().build();
+        return ResponseEntity.ok("Event deleted successfully");
     }
 }

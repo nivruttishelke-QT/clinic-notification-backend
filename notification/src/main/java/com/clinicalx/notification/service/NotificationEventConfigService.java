@@ -27,7 +27,7 @@ public class NotificationEventConfigService {
     public NotificationEventResponse createEvent(NotificationEventCreateRequest request) {
 
         if (repository.existsByEventName( request.eventName())) {
-            throw new IllegalArgumentException("Event already exists for this clinic");
+            throw new IllegalArgumentException("Event already exists ");
         }
 
         NotificationEventConfig event = new NotificationEventConfig();
