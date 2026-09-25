@@ -20,7 +20,8 @@ public class ClinicController {
             @RequestParam Long clientId) {
 
         return ResponseEntity.ok(
-                clinicService.getClinicsByClient(clientId)
+                clinicService.
+                        getClinicsByClient(clientId)
         );
     }
 }
