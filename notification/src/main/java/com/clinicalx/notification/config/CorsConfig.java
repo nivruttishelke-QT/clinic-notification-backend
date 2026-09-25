@@ -1,4 +1,4 @@
-package com.clinicalx.notification;
+package com.clinicalx.notification.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
